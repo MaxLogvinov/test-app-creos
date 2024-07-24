@@ -1,0 +1,7 @@
+@import '../../scss/mixins.scss';
+@import '../../scss/variables.scss';
+
+.header {
+  @include theme(data-theme);
+  padding: 1rem;
+}

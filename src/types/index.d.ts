@@ -39,8 +39,8 @@ export interface Result {
 export interface Thumbnails {
   avatar: string;
   avatar_2x: string;
-  avatar_webp: string;
-  avatar_webp_2x: string;
+  avatar_webp?: string;
+  avatar_webp_2x?: string;
 }
 
 export interface DesignersState {
@@ -48,4 +48,31 @@ export interface DesignersState {
   isLoadingDesignersData: boolean;
   errorDesignersData: boolean;
   errorMessageDesignersData: string;
+}
+
+export interface CommentsState {
+  commentsData: Comments[];
+  isLoadingCommentsData: boolean;
+  errorCommentsData: boolean;
+  errorMessageCommentsData: string;
+}
+
+type Theme = 'light' | 'dark';
+
+interface ThemeState {
+  theme: Theme;
+}
+
+export interface Comments {
+  id: number;
+  issue: string;
+  date_created: string;
+  message: string;
+  designer: Designer;
+}
+
+export interface Designer {
+  avatar: string;
+  username: string;
+  thumbnails: Thumbnails;
 }

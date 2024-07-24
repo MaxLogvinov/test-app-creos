@@ -1,10 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import designersSlice from './slices/designersSlice';
 import issuesSlice from './slices/issuesSlice';
+import themeSlice from './slices/themeSlice';
+import commentsSlice from './slices/commentsSlice';
 
 const rootReducer = combineReducers({
   designers: designersSlice,
-  issues: issuesSlice
+  issues: issuesSlice,
+  theme: themeSlice,
+  comments: commentsSlice
 });
 
 export const store = configureStore({

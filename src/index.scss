@@ -1,0 +1,8 @@
+@import url(./vendor/normalize.css);
+@import './scss/mixins.scss';
+@import './scss/variables.scss';
+@import './scss/themes.scss';
+
+body {
+  @include theme(data-theme);
+}
