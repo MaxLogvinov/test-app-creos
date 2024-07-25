@@ -1,26 +1,44 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Designers, Result } from '../../types';
 
+const API_URL = 'https://sandbox.creos.me/api/v1/designer/';
+
 export const fetchGetDesigners = createAsyncThunk<Result[], void, { rejectValue: string }>(
   'designers/get',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('https://sandbox.creos.me/api/v1/designer/?page=1', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        }
-      });
+      let allDesigners: Result[] = [];
+      let page = 1;
+      let hasMoreData = true;
 
-      if (!response.ok) {
-        throw new Error(`Код ошибки: ${response.status}`);
+      while (hasMoreData) {
+        const response = await fetch(`${API_URL}?page=${page}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.status === 404) {
+          hasMoreData = false;
+          break;
+        }
+
+        if (!response.ok) {
+          throw new Error(`Error code: ${response.status}`);
+        }
+
+        const data: Designers = await response.json();
+        allDesigners = [...allDesigners, ...data.results];
+
+        hasMoreData = data.results.length > 0;
+        page += 1;
       }
 
-      const data: Designers = await response.json();
-      return data.results;
+      return allDesigners;
     } catch (error: unknown) {
-      let errorMessage = 'Произошла ошибка';
+      let errorMessage = 'An error occurred';
 
       if (error instanceof Error) {
         errorMessage = error.message;

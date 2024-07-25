@@ -18,7 +18,6 @@ export const fetchGetComments = createAsyncThunk<Comments[], void, { rejectValue
       }
 
       const data: Comments[] = await response.json();
-      console.log(data);
       return data;
     } catch (error: unknown) {
       let errorMessage = 'Произошла ошибка';

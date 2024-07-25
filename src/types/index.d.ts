@@ -32,8 +32,18 @@ export interface Designers {
 export interface Result {
   avatar: string;
   email: string;
-  issues: Issue[];
+  issues: DesingerIssues[];
   thumbnails: Thumbnails;
+  username: string;
+}
+
+export interface DesingerIssues {
+  date_created: string;
+  date_finished_by_designer: string;
+  date_started_by_designer: string;
+  id: number;
+  key: string;
+  status: string;
 }
 
 export interface Thumbnails {
@@ -75,4 +85,13 @@ export interface Designer {
   avatar: string;
   username: string;
   thumbnails: Thumbnails;
+}
+
+interface DesignerStats {
+  avatar: string;
+  email: string;
+  username: string;
+  taskCount: number;
+  medianTaskTime: number;
+  averageTaskTime: number;
 }
