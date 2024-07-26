@@ -14,15 +14,23 @@ export default function Header() {
 
   return (
     <>
-      <div className="header">
-        <h2>
+      <header className="header">
+        <a className="header__link" href="/">
+          Главная
+        </a>
+        <a className="header__link" href="/issues">
+          Задачи
+        </a>
+        <a className="header__link" href="/designers">
+          Дизайнеры
+        </a>
+        <p>
           {t('wwn')}: {currentWorkWeek}
-        </h2>
+        </p>
         <button onClick={() => changeLanguage('en')}>EN</button>
         <button onClick={() => changeLanguage('ru')}>RU</button>
-        <h1>{t('welcome')}</h1>
         <ThemeSwitcher />
-      </div>
+      </header>
     </>
   );
 }

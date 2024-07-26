@@ -2,16 +2,11 @@
 @import '../../scss/variables.scss';
 @import '../../scss/themes.scss';
 
-.header {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  padding: 1rem;
+.layout {
   display: flex;
-}
-
-.header__link {
-  list-style-type: none;
-  text-decoration: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--background-color);
   color: var(--text-color);
 }

@@ -1,15 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { Layout as L } from 'antd';
+import './Layout.scss';
 
-export default function Layout() {
+const Layout = () => {
   return (
-    <>
-      <div className="layout">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </>
+    <L className="layout">
+      <Header />
+      <Outlet />
+      <Footer />
+    </L>
   );
-}
+};
+
+export default Layout;

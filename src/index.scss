@@ -4,5 +4,6 @@
 @import './scss/themes.scss';
 
 body {
-  @include theme(data-theme);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

@@ -9,6 +9,8 @@ import MainPage from './pages/MainPage/MainPage';
 import IssuesPage from './pages/IssuesPage/IssuesPage';
 import DesignersPage from './pages/DesignersPage/DesignersPage';
 import { fetchGetComments } from './servises/thunks/commentsThunk';
+import { setTheme } from './servises/slices/themeSlice';
+import { Theme } from './types';
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,6 +18,15 @@ export default function App() {
     dispatch(fetchGetDesigners());
     dispatch(fetchGetIssues());
     dispatch(fetchGetComments());
+    document.documentElement.setAttribute('data-theme', 'light');
+  }, [dispatch]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      dispatch(setTheme(savedTheme as Theme));
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
   }, [dispatch]);
 
   return (
