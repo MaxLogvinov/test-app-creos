@@ -9,12 +9,13 @@ export default function MainPage() {
   const isLoadingDesigners = useSelector(
     (state: RootState) => state.designers.isLoadingDesignersData
   );
+  const isLoadingComments = useSelector((state: RootState) => state.comments.isLoadingCommentsData);
 
   return (
     <>
       <main className="main">
         <h1>Main Page</h1>
-        <Comments />
+        {isLoadingComments ? <Loading /> : <Comments />}
         {isLoadingDesigners ? <Loading /> : <TopDesigners />}
       </main>
     </>
