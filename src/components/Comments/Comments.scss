@@ -1,0 +1,21 @@
+@import '../../scss/variables.scss';
+@import '../../scss/mixins.scss';
+
+.comments {
+  @include flex-column-center;
+  width: 80%;
+
+  &__list {
+    width: 90%;
+    border: 1px solid var(--text-color);
+    border-radius: 12px;
+  }
+  &__item {
+    border-top: 1px solid var(--text-color);
+  }
+  &__text {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+}
