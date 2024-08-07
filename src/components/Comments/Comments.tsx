@@ -15,15 +15,6 @@ const Comments = () => {
   return (
     <section className="comments">
       <h2>Последние комментарии</h2>
-      {/* {sortedComments.slice(0, 10).map(comment => (
-          <div key={comment.id}>
-            <img src={comment.designer.avatar} alt={comment.designer.username} />
-            <p>{comment.designer.username}</p>
-            <p>{formatDistanceToNow(new Date(comment.date_created), { addSuffix: true })}</p>
-            <p>{comment.issue}</p>
-            <p>{comment.message}</p>
-          </div>
-        ))} */}
       <List
         className="comments__list"
         itemLayout="horizontal"

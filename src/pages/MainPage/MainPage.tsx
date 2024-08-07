@@ -9,7 +9,6 @@ export default function MainPage() {
   const isLoadingDesigners = useSelector(
     (state: RootState) => state.designers.isLoadingDesignersData
   );
-  // const isLoadingComments = useSelector((state: RootState) => state.comments.isLoadingCommentsData);
 
   return (
     <>

@@ -7,11 +7,25 @@
   color: var(--text-color);
   padding: 1rem;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
 }
 
+.header__navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
 .header__link {
   list-style-type: none;
   text-decoration: none;
   background-color: var(--background-color);
   color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.header__buttons {
+  display: flex;
 }
